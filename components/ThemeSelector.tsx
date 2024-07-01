@@ -17,6 +17,20 @@ const themes = {
     { backgroundColor: 'bg-gradient-to-r from-green-400 to-blue-500', textColor: '#000000' },
     { backgroundColor: 'bg-gradient-to-r from-purple-400 via-pink-500 to-red-500', textColor: '#FFFFFF' },
     { backgroundColor: 'bg-gradient-to-r from-yellow-200 via-green-200 to-green-500', textColor: '#000000' },
+    { backgroundColor: 'bg-gradient-to-r from-pink-500 to-yellow-500', textColor: '#FFFFFF' },
+    { backgroundColor: 'bg-gradient-to-r from-indigo-500 to-purple-500', textColor: '#FFFFFF' },
+    { backgroundColor: 'bg-gradient-to-r from-red-500 to-yellow-500', textColor: '#000000' },
+    { backgroundColor: 'bg-gradient-to-r from-blue-400 to-indigo-900', textColor: '#FFFFFF' },
+    { backgroundColor: 'bg-gradient-to-r from-teal-400 to-lime-500', textColor: '#000000' },
+    { backgroundColor: 'bg-gradient-to-r from-cyan-500 to-blue-500', textColor: '#FFFFFF' },
+  ],
+  radialGradients: [
+    { backgroundColor: 'bg-gradient-radial from-yellow-500 to-red-500', textColor: '#FFFFFF' },
+    { backgroundColor: 'bg-gradient-radial from-green-400 to-blue-500', textColor: '#000000' },
+    { backgroundColor: 'bg-gradient-radial from-purple-400 via-pink-500 to-red-500', textColor: '#FFFFFF' },
+    { backgroundColor: 'bg-gradient-radial from-yellow-200 via-green-200 to-green-500', textColor: '#000000' },
+    { backgroundColor: 'bg-gradient-radial from-teal-400 to-lime-500', textColor: '#000000' },
+    { backgroundColor: 'bg-gradient-radial from-cyan-500 to-blue-500', textColor: '#FFFFFF' },
   ],
 };
 
@@ -38,9 +52,19 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({ onThemeChange }) => {
           />
         ))}
       </div>
-      <h2 className="text-lg font-semibold mb-4 mt-4">Gradients</h2>
+      <h2 className="text-lg font-semibold mb-4 mt-4">Linear Gradients</h2>
       <div className="grid grid-cols-5 gap-2">
         {themes.gradients.map((theme, index) => (
+          <div
+            key={index}
+            className={`w-8 h-8 cursor-pointer ${theme.backgroundColor}`}
+            onClick={() => handleThemeChange(theme, true)}
+          />
+        ))}
+      </div>
+      <h2 className="text-lg font-semibold mb-4 mt-4">Radial Gradients</h2>
+      <div className="grid grid-cols-5 gap-2">
+        {themes.radialGradients.map((theme, index) => (
           <div
             key={index}
             className={`w-8 h-8 cursor-pointer ${theme.backgroundColor}`}
